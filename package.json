@@ -1,0 +1,16 @@
+{
+  "name": "demo-workspace",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "npm run install-dependents",
+    "install-dependents": "cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently -n Client,Server -c green,magenta -p name \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
